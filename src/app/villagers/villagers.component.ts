@@ -10,6 +10,7 @@ interface Villager {
   image_uri: string;
   "bubble-color": string;
   "text-color": string;
+  showMoreInfo: true;
 }
 
 @Component({
@@ -32,6 +33,7 @@ export class VillagersComponent implements OnInit {
         image_uri: "https://acnhapi.com/v1/images/villagers/12",
         "bubble-color": "#e8b010",
         "text-color": "#fffce9",
+        showMoreInfo: true,
       },
       {
         id: 200,
@@ -43,6 +45,7 @@ export class VillagersComponent implements OnInit {
         image_uri: "https://acnhapi.com/v1/images/villagers/200",
         "bubble-color": "#00d1bd",
         "text-color": "#fffce9",
+        showMoreInfo: true,
       },
       {
         id: 20,
@@ -54,8 +57,13 @@ export class VillagersComponent implements OnInit {
         image_uri: "https://acnhapi.com/v1/images/villagers/20",
         "bubble-color": "#3fd8e0",
         "text-color": "#fffce9",
+        showMoreInfo: true,
       },
     ];
+  }
+
+  toggleMoreInfo(villager) {
+    villager.showMoreInfo = !villager.showMoreInfo;
   }
 
   ngOnInit() {}
