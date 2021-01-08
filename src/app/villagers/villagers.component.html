@@ -1,40 +1,17 @@
 <section class="villagers">
-    <!-- JS to populate this content -->
-    <div class="villager-bio" id="villager-1" style="background-color: rgb(232, 176, 16); color: rgb(255, 252, 233);">
-        <img src="https://acnhapi.com/v1/images/villagers/12" class="villager-image">
-        <h2 class="villager-name">Nate</h2>
-        <div class="more-info">
-            <ul>
-                <li>Personality: Lazy</li>
-                <li>Gender: Male</li>
-                <li>Catch Phrase: yawwwn</li>
-            </ul>
-        </div><button style="background-color: rgb(255, 252, 233); color: rgb(232, 176, 16);">Toggle More
-            Information</button>
-    </div>
-    <div class="villager-bio" id="villager-2" style="background-color: rgb(0, 209, 189); color: rgb(255, 252, 233);">
-        <img src="https://acnhapi.com/v1/images/villagers/200" class="villager-image">
-        <h2 class="villager-name">Bertha</h2>
-        <div class="more-info">
-            <ul>
-                <li>Personality: Normal</li>
-                <li>Gender: Female</li>
-                <li>Catch Phrase: bloop</li>
-            </ul>
-        </div><button style="background-color: rgb(255, 252, 233); color: rgb(0, 209, 189);">Toggle More
-            Information</button>
+    <!--Angular Div-->
+    <!-- 
+        For every villager in the villagers array, 
+        call the app-villager-card component, passing in 
+        the villager's data to the child.
+    -->
+
+    <div>
+        <h2>Main Character</h2>
+        <app-villager-card [villager]="mainCharacter"></app-villager-card>
     </div>
 
-    <div class="villager-bio" id="villager-4" style="background-color: rgb(63, 216, 224); color: rgb(255, 252, 233);">
-        <img src="https://acnhapi.com/v1/images/villagers/20" class="villager-image">
-        <h2 class="villager-name">Beardo</h2>
-        <div class="more-info">
-            <ul>
-                <li>Personality: Smug</li>
-                <li>Gender: Male</li>
-                <li>Catch Phrase: whiskers</li>
-            </ul>
-        </div><button style="background-color: rgb(255, 252, 233); color: rgb(63, 216, 224);">Toggle More
-            Information</button>
-    </div>
+    <app-villager-card [villager]="villager" (deleted)="delete($event)" *ngFor="let villager of villagers"></app-villager-card>
+
+    <!--End Angular Div-->
 </section>

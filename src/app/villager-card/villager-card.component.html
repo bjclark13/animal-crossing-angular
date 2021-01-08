@@ -1,0 +1,15 @@
+<div class="villager-bio" [ngStyle]="{ 'background-color': villager['bubble-color'], 'color': villager['text-color'] }">
+    <img [src]="villager.image_uri" class="villager-image">
+    <h2 class="villager-name">{{ villager.name }}</h2>
+    <div class="more-info">
+        <ul>
+            <li>Personality: {{ villager.personality }} </li>
+            <li>Gender: {{ villager.gender }} </li>
+            <li>Catch Phrase: {{ villager['catch-phrase'] | uppercase }}</li>
+        </ul>
+    </div><button [ngStyle]="{ 'color': villager['bubble-color'], 'background-color': villager['text-color'] }">Toggle
+        More
+        Information</button>
+
+    <button (click)="deleteVillager()"> DELETE </button>
+</div>

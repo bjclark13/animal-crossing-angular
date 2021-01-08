@@ -20,8 +20,22 @@ interface Villager {
 })
 export class VillagersComponent implements OnInit {
   public villagers: Villager[];
+  public mainCharacter : Villager;
 
   constructor() {
+    this.mainCharacter = {
+      id: 13,
+      name: "BJ",
+      personality: "Sleepy",
+      birthday: new Date(1995, 9,16),
+      gender: "Male",
+      'catch-phrase': "Can you share your screen?",
+      image_uri: "https://acnhapi.com/v1/images/villagers/12",
+      showMoreInfo: true,
+      "bubble-color": "#66305D",
+      "text-color": "#F1F7F8",
+    };
+
     this.villagers = [
       {
         id: 12,
@@ -60,6 +74,18 @@ export class VillagersComponent implements OnInit {
         showMoreInfo: true,
       },
     ];
+  }
+
+  delete(event) {
+    const id = event;
+
+    // find the index of the item delete
+    const deleteIndex = this.villagers.findIndex(function (villager) {
+      return villager.id === id;
+    });
+
+    // delete from the array
+    this.villagers.splice(deleteIndex, 1);
   }
 
   toggleMoreInfo(villager) {

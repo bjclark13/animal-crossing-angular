@@ -3,11 +3,13 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 import { VillagersComponent } from './villagers/villagers.component';
+import { VillagerCardComponent } from './villager-card/villager-card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    VillagersComponent
+    VillagersComponent,
+    VillagerCardComponent
   ],
   imports: [
     BrowserModule
