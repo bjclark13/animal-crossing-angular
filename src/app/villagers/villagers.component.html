@@ -11,7 +11,8 @@
         <app-villager-card [villager]="mainCharacter"></app-villager-card>
     </div>
 
-    <app-villager-card [villager]="villager" (deleted)="delete($event)" *ngFor="let villager of villagers"></app-villager-card>
+    <app-villager-card [villager]="villager" (deleted)="delete($event)"
+        *ngFor="let villager of villagersService.villagers"></app-villager-card>
 
     <!--End Angular Div-->
 </section>
