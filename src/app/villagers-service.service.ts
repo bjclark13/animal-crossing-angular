@@ -70,7 +70,9 @@ export class VillagersServiceService {
         for (const key in data) {
           if (Object.prototype.hasOwnProperty.call(data, key)) {
             const villager = data[key];
-            
+
+            villager.name = data[key].name["name-USen"];
+
             this.villagers.push(villager);
           }
         }
