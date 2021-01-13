@@ -60,4 +60,6 @@ export class VillagersServiceService {
       },
     ];
   }
+
+  getVillagers(): void {}
 }
