@@ -65,14 +65,20 @@ export class VillagersServiceService {
   getVillagers(): void {
     this.http.get(`${this.api}/villagers/`).subscribe(
       (data: any) => {
-        this.villagers = [];
+        console.log(data);
 
+        this.villagers = [];
+        // Data returns an object, we want
+        // to convert it to an array
         for (const key in data) {
+          // use forin shortcut in VSCode
           if (Object.prototype.hasOwnProperty.call(data, key)) {
+            // Create villager from each item in the object
             const villager = data[key];
 
-            villager.name = data[key].name["name-USen"];
+            villager.name = data[key].name["name-USen"]; // Convert name to its english version
 
+            // Add to our villagers array
             this.villagers.push(villager);
           }
         }
