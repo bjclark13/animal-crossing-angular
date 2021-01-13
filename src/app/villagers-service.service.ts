@@ -20,6 +20,7 @@ interface Villager {
 export class VillagersServiceService {
   public villagers: Villager[];
 
+  public api: string = "http://acnhapi.com/v1/";
   constructor(private http: HttpClient) {
     this.villagers = [
       {
@@ -61,5 +62,7 @@ export class VillagersServiceService {
     ];
   }
 
-  getVillagers(): void {}
+  getVillagers(): void {
+    this.http.get(`${this.api}/villagers/`);
+  }
 }
