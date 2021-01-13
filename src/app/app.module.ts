@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { VillagersComponent } from './villagers/villagers.component';
 import { VillagerCardComponent } from './villager-card/villager-card.component';
 import { VillagersCountComponent } from './villagers-count/villagers-count.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { VillagersCountComponent } from './villagers-count/villagers-count.compo
     VillagersCountComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

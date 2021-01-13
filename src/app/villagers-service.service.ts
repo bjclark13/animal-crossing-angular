@@ -20,7 +20,7 @@ interface Villager {
 export class VillagersServiceService {
   public villagers: Villager[];
 
-  public api: string = "http://acnhapi.com/v1/";
+  public api: string = "http://acnhapi.com/v1";
   constructor(private http: HttpClient) {
     this.villagers = [
       {
@@ -63,6 +63,19 @@ export class VillagersServiceService {
   }
 
   getVillagers(): void {
-    this.http.get(`${this.api}/villagers/`);
+    this.http.get(`${this.api}/villagers/`).subscribe(
+      (data: any) => {
+        this.villagers = [];
+
+        for (const key in data) {
+          if (Object.prototype.hasOwnProperty.call(data, key)) {
+            const villager = data[key];
+            
+            this.villagers.push(villager);
+          }
+        }
+      },
+      (error) => console.error(error)
+    );
   }
 }

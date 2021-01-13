@@ -9,5 +9,7 @@ import { VillagersServiceService } from "../villagers-service.service";
 export class VillagersCountComponent implements OnInit {
   constructor(public villagersService: VillagersServiceService) {}
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.villagersService.getVillagers();
+  }
 }

@@ -54,5 +54,7 @@ export class VillagersComponent implements OnInit {
     villager.showMoreInfo = !villager.showMoreInfo;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.villagersService.getVillagers();
+  }
 }
