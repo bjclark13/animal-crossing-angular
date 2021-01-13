@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 interface Villager {
   id: number;
@@ -19,7 +20,8 @@ interface Villager {
 export class VillagersServiceService {
   public villagers: Villager[];
 
-  constructor() {
+  public api: string = "http://acnhapi.com/v1";
+  constructor(private http: HttpClient) {
     this.villagers = [
       {
         id: 12,
@@ -58,5 +60,30 @@ export class VillagersServiceService {
         showMoreInfo: true,
       },
     ];
+  }
+
+  getVillagers(): void {
+    this.http.get(`${this.api}/villagers/`).subscribe(
+      (data: any) => {
+        console.log(data);
+
+        this.villagers = [];
+        // Data returns an object, we want
+        // to convert it to an array
+        for (const key in data) {
+          // use forin shortcut in VSCode
+          if (Object.prototype.hasOwnProperty.call(data, key)) {
+            // Create villager from each item in the object
+            const villager = data[key];
+
+            villager.name = data[key].name["name-USen"]; // Convert name to its english version
+
+            // Add to our villagers array
+            this.villagers.push(villager);
+          }
+        }
+      },
+      (error) => console.error(error)
+    );
   }
 }
