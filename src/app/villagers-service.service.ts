@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 interface Villager {
   id: number;
@@ -19,7 +20,7 @@ interface Villager {
 export class VillagersServiceService {
   public villagers: Villager[];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.villagers = [
       {
         id: 12,
