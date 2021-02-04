@@ -1,4 +1,5 @@
 import { Injectable } from "@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 interface Villager {
   id: number;
@@ -19,7 +20,7 @@ interface Villager {
 export class VillagersServiceService {
   public villagers: Villager[];
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.villagers = [
       {
         id: 12,
@@ -58,5 +59,38 @@ export class VillagersServiceService {
         showMoreInfo: true,
       },
     ];
+  }
+
+  getVillagers(): void {
+    // Make an API request to our Animal Crossings API
+    // Set the response of that request to our this.villagers array
+    const url = "http://acnhapi.com/v1/villagers/";
+
+    this.http
+      .get(url) // calling the API
+      .subscribe(
+        // subscribing to run our functions when the data returns
+        (data) => {
+          // this is what happens on success
+          console.log(data);
+
+          // convert object to an array
+          for (const key in data) {
+            if (Object.prototype.hasOwnProperty.call(data, key)) {
+              const villager = data[key]; // individual villager
+
+              // converting the format of the API to the format
+              // that we are expecting in our Villager interface
+              villager.name = villager.name["name-USen"];
+
+              this.villagers.push(villager);
+            }
+          }
+        },
+        (error) => {
+          // this is what happens on failure
+          console.error(error);
+        }
+      );
   }
 }

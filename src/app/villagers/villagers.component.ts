@@ -42,7 +42,9 @@ export class VillagersComponent implements OnInit {
     const id = event;
 
     // find the index of the item delete
-    const deleteIndex = this.villagersService.villagers.findIndex(function (villager) {
+    const deleteIndex = this.villagersService.villagers.findIndex(function (
+      villager
+    ) {
       return villager.id === id;
     });
 
@@ -54,5 +56,8 @@ export class VillagersComponent implements OnInit {
     villager.showMoreInfo = !villager.showMoreInfo;
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    // this is called when the component is rendered
+    this.villagersService.getVillagers(); // call the API
+  }
 }
