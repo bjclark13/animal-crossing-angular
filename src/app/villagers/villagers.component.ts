@@ -18,7 +18,7 @@ interface Villager {
   selector: "app-villagers",
   templateUrl: "./villagers.component.html",
   styleUrls: ["./villagers.component.css"],
-  providers: [VillagersServiceService],
+  providers: [],
 })
 export class VillagersComponent implements OnInit {
   public mainCharacter: Villager;
@@ -41,15 +41,7 @@ export class VillagersComponent implements OnInit {
   delete(event) {
     const id = event;
 
-    // find the index of the item delete
-    const deleteIndex = this.villagersService.villagers.findIndex(function (
-      villager
-    ) {
-      return villager.id === id;
-    });
-
-    // delete from the array
-    this.villagersService.villagers.splice(deleteIndex, 1);
+    this.villagersService.deleteVillager(id);
   }
 
   toggleMoreInfo(villager) {

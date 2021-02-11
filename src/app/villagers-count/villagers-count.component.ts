@@ -4,7 +4,7 @@ import { VillagersServiceService } from "../villagers-service.service";
   selector: "app-villagers-count",
   templateUrl: "./villagers-count.component.html",
   styleUrls: ["./villagers-count.component.css"],
-  providers: [VillagersServiceService],
+  providers: [],
 })
 export class VillagersCountComponent implements OnInit {
   constructor(public villagersService: VillagersServiceService) {}

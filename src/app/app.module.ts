@@ -6,6 +6,8 @@ import { VillagersComponent } from "./villagers/villagers.component";
 import { VillagerCardComponent } from "./villager-card/villager-card.component";
 import { VillagersCountComponent } from "./villagers-count/villagers-count.component";
 import { HttpClientModule } from "@angular/common/http";
+import { VillagerFormComponent } from './villager-form/villager-form.component';
+import { FormsModule } from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -13,10 +15,12 @@ import { HttpClientModule } from "@angular/common/http";
     VillagersComponent,
     VillagerCardComponent,
     VillagersCountComponent,
+    VillagerFormComponent,
   ],
   imports: [
     BrowserModule, 
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -1,0 +1,40 @@
+<label>
+    Name
+    <input [(ngModel)]="name" id="name" />
+</label>
+
+<label>
+    Personality
+    <input [(ngModel)]="personality" id="personality" />
+</label>
+
+<label>
+    Gender
+    <input [(ngModel)]="gender" id="gender" />
+
+</label>
+Catch Phrase
+<input [(ngModel)]="catchPhrase" id="catch-phrase" />
+
+<label>
+    Birthday
+    <input [(ngModel)]="birthday" type="date" id="birthday" />
+
+</label>
+
+<label>
+    Image URL
+    <input [(ngModel)]="imageUrl" id="image-url" />
+
+</label>
+
+<label>
+    Bubble color
+    <input [(ngModel)]="bubbleColor" type="color" id="bubble-color" />
+</label>
+
+<label>
+    <input [(ngModel)]="textColor" type="color" ifd="text-color" />
+</label>
+
+<button (click)="addVillager()">Submit</button>
