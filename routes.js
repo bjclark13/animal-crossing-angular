@@ -5,44 +5,7 @@ const routes = express.Router();
 // database
 const pool = require("./connection");
 
-const villagers = [
-  {
-    id: 12,
-    name: "Nate",
-    personality: "Lazy",
-    birthday: new Date(2020, 8, 16),
-    gender: "Male",
-    "catch-phrase": "yawwwn",
-    image_uri: "https://acnhapi.com/v1/images/villagers/12",
-    "bubble-color": "#e8b010",
-    "text-color": "#fffce9",
-    showMoreInfo: true,
-  },
-  {
-    id: 200,
-    name: "Bertha",
-    personality: "Normal",
-    birthday: new Date(2020, 4, 25),
-    gender: "Female",
-    "catch-phrase": "bloop",
-    image_uri: "https://acnhapi.com/v1/images/villagers/200",
-    "bubble-color": "#00d1bd",
-    "text-color": "#fffce9",
-    showMoreInfo: true,
-  },
-  {
-    id: 20,
-    name: "Beardo",
-    personality: "Smug",
-    birthday: new Date(2020, 12, 20),
-    gender: "Male",
-    "catch-phrase": "whiskers",
-    image_uri: "https://acnhapi.com/v1/images/villagers/20",
-    "bubble-color": "#3fd8e0",
-    "text-color": "#fffce9",
-    showMoreInfo: true,
-  },
-];
+const villagers = [];
 
 // respond with "Hello Class!" at URI: /students
 routes.get("/villagers", (req, res) => {
